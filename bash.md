@@ -20,7 +20,7 @@ Use [bashdoc](https://github.com/ajdiaz/bashdoc) to generate documentation.
 # opt: filename: the c file to be scanned
 # use: list-c-functions main.c
 function list-c-functions () {
-  grep -oE "^\w+ \S+\(.+)" "$1" | # get function definitions
+  grep -oE "^\w+ \S+\(.*)" "$1" | # get function definitions
   sort -u                       | # weed out duplicates (because of existing declarations)
   grep -v "int main("           | # remove the main declaration
   while read LINE; do             # add `;` to the end of each line
